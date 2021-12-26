@@ -5,5 +5,8 @@ import "fmt"
 // this is a comment
 
 func main() {
-    fmt.Println("Hello World")
+
+	var name string
+	fmt.Scanf("%s\n", &name)
+	fmt.Println("Hello, my name is %s\n", name)
 }
