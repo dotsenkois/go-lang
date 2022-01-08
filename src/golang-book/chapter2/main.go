@@ -2,19 +2,17 @@ package main
 
 import "fmt"
 
+func makeEvenGenerator() func() uint {
+	i := uint(0)
+	return func() (ret uint) {
+		ret = i
+		i += 2
+		return
+	}
+}
 func main() {
-	x := []int{
-		48, 96, 86, 68,
-		57, 82, 63, 70,
-		37, 34, 83, 27,
-		19, 97, 9, 17,
-	}
-	min := 100000
-	for _, value := range x {
-		if value < min {
-			fmt.Println(value)
-			min = value
-		}
-	}
-	fmt.Println(min)
+	nextEven := makeEvenGenerator()
+	fmt.Println(nextEven()) // 0
+	fmt.Println(nextEven()) // 2
+	fmt.Println(nextEven()) // 4
 }
