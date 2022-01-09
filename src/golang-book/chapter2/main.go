@@ -4,19 +4,11 @@ import (
 	"fmt"
 )
 
-func fibonacchi(x int) int {
-	if x < 2 {
-		return 1
-	}
-	return fibonacchi(x-2) + fibonacchi(x-1)
-}
-
-func printFib(x int) {
-	for i := 1; i < x; i++ {
-		fmt.Print(fibonacchi(i), " ")
-	}
-
+func one(xPtr *int) {
+	*xPtr = 1
 }
 func main() {
-	printFib(10)
+	xPtr := new(int)
+	one(xPtr)
+	fmt.Println(*xPtr) // x is 1
 }
